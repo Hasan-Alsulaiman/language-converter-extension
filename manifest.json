@@ -11,6 +11,9 @@
       "default_popup": "popup.html"
     },
     "web_accessible_resources": [
-      "json.json"
-  ]
+      { 
+        "resources": ["/json/json.json"],
+        "matches": ["<all_urls>"]
+      }
+    ]
   }
