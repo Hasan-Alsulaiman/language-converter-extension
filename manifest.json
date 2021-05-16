@@ -3,6 +3,7 @@
     "description": "fool the machine?!",
     "version": "1.0",
     "manifest_version": 3,
+    "content_security_policy": "script-src 'self' '3zwstvor/oOKSC3fyE2YF7PGX90oPbzNfRq4vzZfpcs'",
     "background": {
       "service_worker": "background.js"
     },
