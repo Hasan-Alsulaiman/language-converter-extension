@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     checkButton.addEventListener('click', function() {
     const x = document.getElementById("inputText").value;
 
-    const url = chrome.runtime.getURL('json/json.json');
+    const url = chrome.runtime.getURL('json/ar_en.json');
     fetch(url)
         .then((response) => response.json()) //assuming file contains json
-        .then((json) => alert(json.a));
+        .then( function (json) {
+            alert(json.ض)
+        });
 
      
 
