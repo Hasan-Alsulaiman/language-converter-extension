@@ -1,16 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     var checkButton = document.getElementById('submit');
     checkButton.addEventListener('click', function() {
-    const x = document.getElementById("inputText").value;
+        const input = document.getElementById("inputText").value;
 
-    const url = chrome.runtime.getURL('json/ar_en.json');
-    fetch(url)
-        .then((response) => response.json()) //assuming file contains json
-        .then( function (json) {
-            alert(json.ض)
-        });
+        const url = chrome.runtime.getURL('json/en_ar.json');
+        fetch(url)
+            .then((response) => response.json()) //assuming file contains json
+            .then( function (en_ar) {
+                let result = []
+                for(let key of input){
+                result.push(en_ar[key])
+                }
+                alert(result)
+            });
 
-     
+        
 
     }, false);
   }, false);
