@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 for(let key of input){
                 result.push(en_ar[key])
                 }
-                alert(result)
+                alert(result.join(""))
             });
 
         
