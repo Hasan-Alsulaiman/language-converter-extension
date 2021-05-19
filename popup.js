@@ -4,40 +4,32 @@ document.addEventListener('DOMContentLoaded', function() {
         const input = document.getElementById("inputText").value;
 
         const url = chrome.runtime.getURL('json/en_ar.json');
-        fetch(url)
-            .then((response) => response.json()) //assuming file contains json
-            .then( function (en_ar) {
-                let result = []
-                for(let key of input){
-                result.push(en_ar[key])
-                }
-                
-                let resultElement = document.getElementById("result");
-                let text = document.createTextNode(result.join(""));
-                
-                resultElement.appendChild(text);
-        
-            });
-        
-
               
-            let chars = fetchCharJSON(url)
-            let r = converter(input, chars)
+        fetchCharJSON(url)
+            .then((chars) => convert(input, chars))
+            .then(display)
+        
+            
 
     }, false);
   }, false);
 
-  async function fetchCharJSON(url) {
+async function fetchCharJSON(url) {
     const response = await fetch(url);
     const movies = await response.json();
     return movies;
-  }
+}
 
- function converter(input, charMap) {
-     alert(input)
+function convert(input, charMap) {
     let result = []
     for(let key of input){
     result.push(charMap[key])
     }
     return result;
-  }
+}
+
+function display(result) {
+    let resultElement = document.getElementById("result");
+    let text = document.createTextNode(result.join(""));
+    resultElement.appendChild(text);
+}
