@@ -18,7 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 resultElement.appendChild(text);
         
             });
+        
 
+              
+            let chars = fetchCharJSON(url)
+            let r = converter(input, chars)
 
     }, false);
   }, false);
+
+  async function fetchCharJSON(url) {
+    const response = await fetch(url);
+    const movies = await response.json();
+    return movies;
+  }
+
+ function converter(input, charMap) {
+     alert(input)
+    let result = []
+    for(let key of input){
+    result.push(charMap[key])
+    }
+    return result;
+  }
