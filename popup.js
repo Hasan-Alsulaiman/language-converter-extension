@@ -11,10 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 for(let key of input){
                 result.push(en_ar[key])
                 }
-                alert(result.join(""))
+                
+                let resultElement = document.getElementById("result");
+                let text = document.createTextNode(result.join(""));
+                
+                resultElement.appendChild(text);
+        
             });
 
-        
 
     }, false);
   }, false);
