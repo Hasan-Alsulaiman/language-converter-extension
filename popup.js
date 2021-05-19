@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var checkButton = document.getElementById('submit');
-    checkButton.addEventListener('click', function() {
+    var submitButton = document.getElementById('submit');
+    submitButton.addEventListener('click', function() {
         const input = document.getElementById("inputText").value;
 
         const url = chrome.runtime.getURL('json/en_ar.json');
               
         fetchCharJSON(url)
-            .then((chars) => convert(input, chars))
+            .then((charMap) => convert(input, charMap))
             .then(display)
         
             
@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false);
   }, false);
 
+
+
+// function definitions
 async function fetchCharJSON(url) {
     const response = await fetch(url);
     const movies = await response.json();
