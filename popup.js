@@ -26,7 +26,7 @@ async function fetchCharJSON(url) {
 function convert(input, charMap) {
     let result = []
     for(let key of input){
-        result.push(key in charMap?charMap[key]: input)
+        result.push(key in charMap?charMap[key]: key)
     }
     return result;
 }
