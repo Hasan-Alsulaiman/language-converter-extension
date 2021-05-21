@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // function definitions
 async function fetchCharJSON(url) {
     const response = await fetch(url);
-    const movies = await response.json();
-    return movies;
+    return response.json();
+   
 }
 
 function convert(input, charMap) {
